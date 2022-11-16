@@ -12,3 +12,4 @@ primero pense la logica del juego, en base a eso me fije que tablas deberia crea
 [Delegados]: uso estos mismos para crear el timer, luego tambien, para hacer una funcion de sort y acomodar una lista
 [task]: lo uso para comensar la tarea de sumar segundos en un contador mientras se juga una partida
 [evento]: uso el evento action en el timer para poder hacer de motor de este mismo
+![diagrama de clases](https://user-images.githubusercontent.com/98592297/202175014-98df4d47-a5c7-4bcd-ae0b-c779f4be2fa4.png)
