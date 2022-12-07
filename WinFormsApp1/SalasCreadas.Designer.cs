@@ -40,7 +40,6 @@ namespace WinFormsApp1
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonfltr = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -105,7 +104,6 @@ namespace WinFormsApp1
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
@@ -178,21 +176,6 @@ namespace WinFormsApp1
             this.buttonfltr.MouseEnter += new System.EventHandler(this.buttonfltr_MouseEnter);
             this.buttonfltr.MouseLeave += new System.EventHandler(this.buttonfltr_MouseLeave);
             // 
-            // button4
-            // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button4.Location = new System.Drawing.Point(650, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(102, 67);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Refresh";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // SalasCreadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -225,6 +208,5 @@ namespace WinFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn Creador;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn TiempoDeJuego;
-        private System.Windows.Forms.Button button4;
     }
 }

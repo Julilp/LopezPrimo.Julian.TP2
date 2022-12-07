@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassLibrary1;
 
+
 namespace WinFormsApp1
 {
     
@@ -60,7 +61,11 @@ namespace WinFormsApp1
 
         private void Menu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            if(MessageBox.Show("Esta seguro que desea cerrar el programa?","Cerrar Programa",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            
         }
     }
 }

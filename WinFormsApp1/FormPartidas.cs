@@ -16,12 +16,30 @@ namespace WinFormsApp1
 {
     public partial class FormPartidas : Form
     {
+        /// <summary>
+        /// se usa para guardar el id de la sala e identificarla
+        /// </summary>
+         public int idSala;
+        /// <summary>
+        /// se usa para comparar con el id sala
+        /// </summary>
         int idAux;
-        public int idSala;
+        /// <summary>
+        /// nos indica de quien es el turno
+        /// </summary>
         bool turno = false;
+        /// <summary>
+        /// variable que guarda la informacion de la partida
+        /// </summary>
         bool partidaEnCurso=true;
+        /// <summary>
+        /// juarda el nombre del creador de la partida
+        /// </summary>
         public string creador;
-
+        /// <summary>
+        /// guarda el delegado que uso para guardar y/o actualizar las manos
+        /// </summary>
+        /// <param name="manoAGuardar"></param>
         public delegate void delegadoGuardar(InfoManos manoAGuardar);
         public delegadoGuardar delegado;
 
@@ -42,6 +60,11 @@ namespace WinFormsApp1
             InitializeComponent();
         }
 
+        /// <summary>
+        /// primero comparo el tiempo que se jugo la partida si este es igual a "" signoifica que no empezo y reparto las cartas, si no llamo a las funciones que buscan en la base de datos y cargan los datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormPartidas_Load(object sender, EventArgs e)
         {
             InfoManos manoAGuardar = new InfoManos(idSala, cartasUsuario, cartasUsuarioDos, baraja, mazo);
@@ -60,7 +83,7 @@ namespace WinFormsApp1
             else
             {
               manoAGuardar.distribuirCartas(manoAGuardar);
-              label1.Text = mazo[0].valor.ToString();
+              label1.Text = mazo[mazo.Count() - 1].valor.ToString();
               contador =Convert.ToDateTime(stTiempo);
               this.actualizarManos(cartasUsuario, listBox1, cartasUsuarioDos, listBox2);
               Task t = new Task(CambiarHora);
@@ -68,7 +91,11 @@ namespace WinFormsApp1
 
             }          
         }
-
+        /// <summary>
+        /// este es el botod de pasar el turno, lo que hace es que al tocar el boton le pase el turno al jugador siguiente y guarde las cartas del primer jugador
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
             button4.Visible = false;
@@ -87,7 +114,11 @@ namespace WinFormsApp1
                 }
             }
         }
-
+        /// <summary>
+        /// alterna el booleano que manda sobre los turnos
+        /// </summary>
+        /// <param name="turno"></param>
+        /// <returns></returns>
         public bool CambioDeTurno (bool turno)
         {
             bool nt=false;
@@ -105,7 +136,11 @@ namespace WinFormsApp1
             }
             return nt;
         }
-
+        /// <summary>
+        /// aca es donde se compara y se valida que la carta seleccionada en la listbox sea valida para arrojar al medio, y se arroja
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
             button4.Visible = false;         
@@ -178,7 +213,11 @@ namespace WinFormsApp1
             }
             CompararGanador(listBox1,listBox2,creador,labelcontador.Text);
         }
-
+        /// <summary>
+        /// aca es donde se compara y se valida que la carta seleccionada en la listbox sea valida para arrojar al medio, y se arroja
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox2_DoubleClick(object sender, EventArgs e)
         {
             button4.Visible = false;
@@ -250,15 +289,21 @@ namespace WinFormsApp1
             }
             CompararGanador(listBox1, listBox2, creador, labelcontador.Text);
         }
-
+        /// <summary>
+        /// funcion que sirve solamente para que cuando el valor de la carta del medio cambie tambien cambie su color
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void label1_TextChanged(object sender, EventArgs e)
-        {
-            
+        {     
             this.cambiarColor(pictureBox1, label1);
 
-          
         }
-
+        /// <summary>
+        /// boton que le otorga el nuevo color al mazo luegode usar un comodin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonRojo_Click(object sender, EventArgs e)
         {
             cartaAux.color = "Rojo";
@@ -281,7 +326,11 @@ namespace WinFormsApp1
             this.actualizarManos(cartasUsuario, listBox1, cartasUsuarioDos, listBox2);
             label1.Text = mazo[mazo.Count() - 1].valor.ToString();
         }
-
+        /// <summary>
+        /// boton que le otorga el nuevo color al mazo luegode usar un comodin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param
         private void buttonAzul_Click(object sender, EventArgs e)
         {
             cartaAux.color = "Azul";
@@ -305,7 +354,11 @@ namespace WinFormsApp1
             this.actualizarManos(cartasUsuario, listBox1, cartasUsuarioDos, listBox2);
             label1.Text = mazo[mazo.Count() - 1].valor.ToString();
         }
-
+        /// <summary>
+        /// boton que le otorga el nuevo color al mazo luegode usar un comodin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param
         private void buttonVerde_Click(object sender, EventArgs e)
         {
             cartaAux.color = "Verde";
@@ -330,7 +383,11 @@ namespace WinFormsApp1
             this.actualizarManos(cartasUsuario, listBox1, cartasUsuarioDos, listBox2);
             label1.Text = mazo[mazo.Count() - 1].valor.ToString();
         }
-
+        /// <summary>
+        /// boton que le otorga el nuevo color al mazo luegode usar un comodin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param
         private void buttonAmarillo_Click(object sender, EventArgs e)
         {
             cartaAux.color = "Amarillo";
@@ -354,7 +411,11 @@ namespace WinFormsApp1
             this.actualizarManos(cartasUsuario,listBox1,cartasUsuarioDos,listBox2);
             label1.Text = mazo[mazo.Count() - 1].valor.ToString();
         }
-
+        /// <summary>
+        /// esta funcion le otorga una carta random de la baraja al jugador que pida carta y le habilita a pasar el turno
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             Carta aux1 = new Carta();
@@ -395,6 +456,11 @@ namespace WinFormsApp1
                 }
             }
         }
+        /// <summary>
+        /// asigna un color especifico dependiendo el color de la carta arrojada
+        /// </summary>
+        /// <param name="pictureBox"></param>
+        /// <param name="label1"></param>
         public void cambiarColor (PictureBox pictureBox,Label label1)
         {
             switch (mazo[mazo.Count() - 1].color)
@@ -418,6 +484,13 @@ namespace WinFormsApp1
             }
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         } 
+        /// <summary>
+        /// refresca las cartas de la listbox con las de las list
+        /// </summary>
+        /// <param name="Usuario1"></param>
+        /// <param name="listbox1"></param>
+        /// <param name="Usuario2"></param>
+        /// <param name="listbox2"></param>
         public void actualizarManos (List<Carta> Usuario1,ListBox listbox1, List<Carta> Usuario2, ListBox listbox2)
         {
             listBox1.Items.Clear();
@@ -432,6 +505,9 @@ namespace WinFormsApp1
                 listbox1.Items.Add(item.StringCarta(item));
             }
         }
+        /// <summary>
+        /// asigna la hora para el timer
+        /// </summary>
         public void AsignarHora()
         {
             
@@ -456,7 +532,9 @@ namespace WinFormsApp1
             
 
         }
-
+        /// <summary>
+        /// suma de a segundos en el timer
+        /// </summary>
         public void CambiarHora()
         {
             while (partidaEnCurso)
@@ -465,32 +543,13 @@ namespace WinFormsApp1
                 this.AsignarHora();
             }
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            InfoManos manoAGuardar = new InfoManos(idSala, cartasUsuario, cartasUsuarioDos, baraja, mazo);
-            
-            
-            if (stTiempo == "")
-            {
-
-                manoAGuardar.GuardarMano(manoAGuardar);
-                partidaEnCurso = false;
-            }
-            else
-            {
-                baseDeDatos.BorrarManos(idSala);
-                manoAGuardar.GuardarMano(manoAGuardar);
-
-                partidaEnCurso = false;
-
-            }
-            baseDeDatos.GuardarSala(idSala,contador.ToString());
-            
-            this.Close();
-
-        }
-
+        /// <summary>
+        /// realiza la comparacion de las cartas que quedan para que cuando queden 0 asigne un ganador
+        /// </summary>
+        /// <param name="listBox1"></param>
+        /// <param name="listBox2"></param>
+        /// <param name="creador"></param>
+        /// <param name="tiempo"></param>
         public void CompararGanador(ListBox listBox1, ListBox listBox2, string creador, string tiempo)
         {
             bool resultado = false;
@@ -539,6 +598,52 @@ namespace WinFormsApp1
                 baseDeDatos.GuardarSala(idSala, contador.ToString());
                 baseDeDatos.TerminarPartida(idSala);
                 this.Close();
+            }
+        }
+        /// <summary>
+        /// abre un formulario con los valores de las cartas especiales
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Valores frm = new Valores();
+            frm.Show();
+        }
+        /// <summary>
+        /// guarda los datos de la partida, discriminando si es la primera vez o tiene que remlplazar los datos en la base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            InfoManos manoAGuardar = new InfoManos(idSala, cartasUsuario, cartasUsuarioDos, baraja, mazo);
+
+
+            if (stTiempo == "")
+            {
+
+                manoAGuardar.GuardarMano(manoAGuardar);
+                partidaEnCurso = false;
+            }
+            else
+            {
+                baseDeDatos.BorrarManos(idSala);
+                manoAGuardar.GuardarMano(manoAGuardar);
+
+                partidaEnCurso = false;
+
+            }
+            baseDeDatos.GuardarSala(idSala, contador.ToString());
+
+            this.Close();
+        }
+
+        private void FormPartidas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Esta seguro que desea cerrar el programa, puede no quedar guardado su progreso", "Cerrar Programa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
             }
         }
     }

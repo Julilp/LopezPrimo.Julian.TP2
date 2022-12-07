@@ -45,6 +45,7 @@ namespace WinFormsApp1
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -257,6 +258,19 @@ namespace WinFormsApp1
             this.label5.Text = " Se guardo el usuario correctamente";
             this.label5.Visible = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.Yellow;
+            this.label6.Location = new System.Drawing.Point(297, 75);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(221, 25);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "No se encontro usuario";
+            this.label6.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -265,6 +279,7 @@ namespace WinFormsApp1
             this.BackgroundImage = global::WinFormsApp1.Properties.Resources.nekoma_2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 446);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
@@ -285,6 +300,7 @@ namespace WinFormsApp1
             this.MaximumSize = new System.Drawing.Size(816, 485);
             this.MinimumSize = new System.Drawing.Size(816, 485);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -312,6 +328,7 @@ namespace WinFormsApp1
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 

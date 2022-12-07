@@ -53,13 +53,20 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            persona.contrasenia = textBoxContraseña.Text;
+            persona.nombre = textBoxUsuario.Text;
            if(baseDeDatos.insert(persona) ==true)
             {
                 Menu frm = new Menu();
                 this.Hide();
                 frm.creador = textBoxUsuario.Text;
                 frm.ShowDialog();
+            }
+           else
+            {
+                label6.Visible = true;
+                textBoxContraseña.Text = "";
+                textBoxUsuario.Text = "";
 
             }
 
@@ -87,7 +94,10 @@ namespace WinFormsApp1
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("Esta seguro que desea cerrar el programa?", "Cerrar Programa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
 
         }
     }
