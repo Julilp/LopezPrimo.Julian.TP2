@@ -94,10 +94,7 @@ namespace WinFormsApp1
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Esta seguro que desea cerrar el programa?", "Cerrar Programa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+            Application.Exit();
 
         }
     }

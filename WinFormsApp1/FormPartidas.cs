@@ -641,10 +641,7 @@ namespace WinFormsApp1
 
         private void FormPartidas_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Esta seguro que desea cerrar el programa, puede no quedar guardado su progreso", "Cerrar Programa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+            Application.Exit();
         }
     }
 }
