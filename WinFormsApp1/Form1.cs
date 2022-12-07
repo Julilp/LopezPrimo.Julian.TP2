@@ -74,7 +74,9 @@ namespace WinFormsApp1
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
-            if(baseDeDatos.RegistrarUsuario(persona) ==true)
+            persona.contrasenia = textBoxContraseña.Text;
+            persona.nombre = textBoxUsuario.Text;
+            if (baseDeDatos.RegistrarUsuario(persona) ==true)
             {
                 label5.Visible = true;
                 labelAsterisco1.Visible = false;

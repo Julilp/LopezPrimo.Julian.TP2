@@ -639,9 +639,5 @@ namespace WinFormsApp1
             this.Close();
         }
 
-        private void FormPartidas_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

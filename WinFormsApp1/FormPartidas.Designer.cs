@@ -316,7 +316,7 @@ namespace WinFormsApp1
             this.Name = "FormPartidas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SalasDisponibles";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPartidas_FormClosing);
+         
             this.Load += new System.EventHandler(this.FormPartidas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
