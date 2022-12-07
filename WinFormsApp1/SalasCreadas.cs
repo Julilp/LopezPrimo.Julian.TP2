@@ -14,9 +14,24 @@ namespace WinFormsApp1
 {
     public partial class SalasCreadas : Form
     {
+        /// <summary>
+        /// se usa para accceder a la base de datos de sql y las funcione necesarias para ello
+        /// </summary>
         conexion BaseDeDatos = new conexion();
+        /// <summary>
+        /// lista de las salas para mostrar todas las salas de las bases de datos
+        /// </summary>
         List<Sala> salas = new List<Sala>();
+        /// <summary>
+        /// lista que se usa para los sorts
+        /// </summary>
         List<Sala> listaAux = new List<Sala>();
+        /// <summary>
+        /// delegado que se usa para ordenar la lista de varias maneras
+        /// </summary>
+        /// <param name="salas"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public delegate List<Sala> delegadoSort(List<Sala> salas,int index);
         delegadoSort funcionesSort;
 
@@ -77,10 +92,10 @@ namespace WinFormsApp1
         }
         public List<Sala> SortByTiempo(List<Sala> salas)
         {
-
-
             return listaAux = salas.OrderBy(s => s.tiempo).ToList();
         }
+
+        #region Uso de Delegado
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
@@ -111,6 +126,7 @@ namespace WinFormsApp1
             }
 
         }
+        #endregion
         public List<Sala> Sorts(List<Sala> salas,int index)
         {
             salas = BaseDeDatos.DevolverSalas();
@@ -127,6 +143,11 @@ namespace WinFormsApp1
                     break;
             }
             return salas;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

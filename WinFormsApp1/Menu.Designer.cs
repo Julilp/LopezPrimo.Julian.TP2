@@ -31,7 +31,6 @@ namespace WinFormsApp1
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelStats = new System.Windows.Forms.Panel();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.btnEstadistica = new System.Windows.Forms.Button();
             this.btnVerSala = new System.Windows.Forms.Button();
             this.btnCrearSala = new System.Windows.Forms.Button();
@@ -52,7 +51,6 @@ namespace WinFormsApp1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Controls.Add(this.panelStats);
-            this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.btnEstadistica);
             this.panel1.Controls.Add(this.btnVerSala);
             this.panel1.Controls.Add(this.btnCrearSala);
@@ -71,25 +69,6 @@ namespace WinFormsApp1
             this.panelStats.Size = new System.Drawing.Size(910, 473);
             this.panelStats.TabIndex = 9;
             this.panelStats.Visible = false;
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.BackColor = System.Drawing.Color.Black;
-            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnSalir.FlatAppearance.BorderSize = 0;
-            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSalir.Location = new System.Drawing.Point(0, 528);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(134, 46);
-            this.btnSalir.TabIndex = 8;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = false;
             // 
             // btnEstadistica
             // 
@@ -237,6 +216,7 @@ namespace WinFormsApp1
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3stat);
             this.Name = "Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
             this.Load += new System.EventHandler(this.Menu_Load);
@@ -258,7 +238,6 @@ namespace WinFormsApp1
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEstadistica;
         private System.Windows.Forms.Button btnVerSala;
         private System.Windows.Forms.Panel panelStats;
